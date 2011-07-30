@@ -1,0 +1,32 @@
+DynamicList
+-------------------------------------------------------------------------------------
+
+Methoden:
+
+Konstruktor: Dem Konstruktor muss die ID eines DIV-Containers übergeben werden, 
+der den Prototyp für ein Listenelement enthält. Der Inhalt des DIV-Containers
+wird 1:1 übernommen, lediglich das id-Attribut wird überschrieben. Es werden
+also auch Stylesheets übernommen!
+
+setPrefillData: Die Methode muss VOR createList aufgerufen werden, ansonsten 
+ist sie unwirksam! Der Methode muss ein Array von Objekten übergeben werden, für
+die Listen-Elemente erzeugt werden sollen. Die Objekte werden den Input-Feldern
+anhand des name-Attribut zugeordnet (siehe Beispiel).
+
+setIconColor: Die Methode muss VOR createList aufgerufen werden, ansonsten 
+ist sie unwirksam! Sie setzt die Hintergrundfarbe des Hinzufügen-/ Löschen-Buttons.
+Wird die Methode nicht verwendet, ist der Hintergrund transparent. Die Farbangabe
+entspricht einer CSS-Angabe (siehe Beispiel).
+
+setElementBackgroundColor: Die Methode muss VOR createList aufgerufen werden, 
+ansonsten ist sie unwirksam! Sie setzt die Hintergrundfarbe der Listen-Elemente. 
+Wird die Methode nicht verwendet, ist der Hintergrund transparent. Die Farbangabe
+entspricht einer CSS-Angabe (siehe Beispiel).
+
+setElementBorder: Die Methode muss VOR createList aufgerufen werden, ansonsten ist 
+sie unwirksam! Sie definiert einen Rahmen für die Listen-Elemente. Wird die Methode 
+nicht verwendet, sind die Listen-Elemente rahmenlos. Die Syntax entspricht der
+CSS-Syntax für border (siehe Beispiel).
+
+createList: Erzeugt die dynamische Liste. Diese Methode muss als letzte aufgerufen 
+werden (siehe Beispiel).

@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+        
+<html>
+    <head>
+        <title>jQuery DynamicList Plugin</title>
+        
+        <link rel="stylesheet" type="text/css" href="fileuploader.css">
+    </head>
+    
+    <body>
+        <div id="file-uploader">
+            <form action="minify.php" method="post" enctype="multipart/form-data" target="upload_target" id="form">
+            <div id="list">
+                <label>Filename:</label>
+                <input type="file" name="file[]"> 
+                <br>
+                <label>Filename:</label>
+                <input type="file" name="file[]"> 
+                <br>
+                <label>Text:</label>
+                <input type="text" name="text"> 
+                <br>
+                    <select>
+                        <option>value 1</option>
+                        <option>value 2</option>
+                        <option>value 3</option>
+                    </select>
+                    <textarea></textarea>
+                    <input type="submit" value="Submit">
+                        <input type="button" value="Button">
+                            <input type="reset" value="reset">
+            </div>
+            <label>Output-Filename:</label>
+            <input type="text" name="intermediate">
+            <input type="hidden" name="output">
+            <br>
+            <input type="submit" value="Submit">
+            </form>
+            <input type="button" id="add" value="Add">
+        </div>
+        <iframe id="upload_target" name="upload_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>
+        
+        <script type="text/javascript" src="jquery-1.6.min.js"></script>
+        <script type="text/javascript" src="jquery.dynamicList.js"></script>
+        <script type="text/javascript">
+        
+            $(document).ready( function(){
+                $('#list').DynamicList({
+                    triggerAddElement: '#add',
+                    triggerRemoveElement: '#remove',
+                    addOnly: true
+                });
+            });
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+Animation Plugin for jQuery - API
+    
+    Benötigt jQuery v1.6
+    
+    Das Animation Plugin erzeugt Animationen vergleichbar mit Flash-Animationen, die z.B. für animierte Banner oder Navigations-Menüs verwendet werden können.
+    Als Grundlage der Animationen dienen CSS-Sprites. Dem Plugin werden lediglich die Koordinaten der Einzelbilder innerhalb des Sprites mitgeteilt.
+    Das Sprite muss dem zu animierenden Element zuvor als Hintergrund-Bild zugewiesen worden sein. Die Hintergrund-Position, die dem Element im Stylesheet
+    zugewiesen wird, muss nicht der entsprechen, die als Ausgangspunkt für die Animation dienen soll.
+    
+    jQuery.Animation(conf)    - Erzeugt ein Animationsobjekt und erwartet die Konfiguration als Objekt. Animiert werden immer die Objekte, auf die die Funktion
+                                angewandt wird. Es müssen mindestens die Parameter 'positions' und 'forwardEvent' gesetzt werden. Alle übrigen Parameter sind optional.
+    
+    Options:
+        positions             - Koordinaten der Einzelbilder innerhalb des CSS-Sprites. Der Parameter muss ein Array sein, indem die Koordinaten wiederum als
+                                Array in der Form [x,y] hinterlegt sind.
+        forwardEvent          - Event, bei dem die Animation gestartet werden soll.
+                                Mögliche Werte: DOM Events, 'load', 'none'
+                       
+        reverseEvent          - Event, bei dem eine laufende Animation rückwärts abgespielt werden soll. Kann nicht einzeln verwendet werden!
+                                Default: 'none'
+                                Mögliche Werte: DOM Events, 'after', 'none' 
+        triggerElement        - Das DOM-Element, mit dem die Animation gestartet wird.
+        triggerElementReverse - Das DOM-Element, das das Rückwärtslaufen der Animation startet. Nur wirksam, wenn 'reverseEvent' gesetzt ist.
+                                Default: 'triggerElement'.
+        startPosition         - Koordinaten des Einzelbilds innerhalb des CSS-Sprites, das als Ausgangspunkt der Animation dienen soll. Der Parameter wird
+                                automatisch initialsiert und muss daher nicht mit dem im CSS-Stylesheet voreingestellten Wert übereinstimmen.
+                                Default: 0.
+        stopPosition          - Koordinaten des Einzelbilds innerhalb des CSS-Sprites, bei dem die Animation enden soll.
+                                Default: Länge des positions-Array - 1, d.h. alle angegebenen Koordinaten werden durchlaufen.
+        delay                 - Verzögerung in ms bevor die Animation gestartet wird. Nur wirksam, wenn für forwardEvent = 'load' oder für reverseEvent = 'after in
+                                Verbindung mit repeat > 0 oder loop = true.
+                                Default: 0
+        rewind                - Legt fest, ob die Animation nach dem Abspielen zurückgesetzt werden soll. Nur wirksam für reverseEvent = 'none'.
+                                Default: false
+        delayRewind           - Verzögerung in ms bevor die Animation zurückgesetzt wird oder das Rücklaufen der Animation beginnt.
+                                Default: 0
+        autostart             - Legt fest, ob die Animation automatisch gestartet werden soll. Falls autostart = false gesetzt wird, muss die Animation explizit
+                                über einen Aufruf der Start-Methode gestartet werden.
+                                Default: true
+        repeat                - Legt fest, wie oft die Animation wiederholt werden soll. repeat = 0 bedeutet daher, dass die Animation nicht wiederholt, sprich einmal
+                                ausgeführt wird. Nur wirksam in Verbindung mit reverseEvent = 'none' oder reverseEvent = 'after'.
+                                Default: 0
+        loop                  - Falls loop = true gesetzt wird, wird die Animation solange wiederholt, bis das Fenster geschlossen wird. Die Schleife kann nur durch
+                                einen Aufruf der Stop-Methode beendet werden. Nur wirksam in Verbindung mit reverseEvent = 'none' oder reverseEvent = 'after'.
+                                Default: false
+        frequency             - Anzahl der Bilder, die pro Sekunde gezeigt werden. 25 ist der Wert, der für Filme verwendet wird.
+                                Default: 25
+                                
+    Methoden:
+        Start                 - Startet die Animation.
+                                Optionaler Parameter: noinit - falls noinit = true gesetzt ist, wird die Animation nicht auf die erste, durch das positions-Array
+                                festgelegte, Position gesetzt. (Default: false)
+        Stop                  - Beendet eine laufende Animation.
+                                Optionaler Parameter: reset - falls reset = true gesetzt ist, wird die Animation auf ihre Anfangswerte zurückgesetzt. (Default: false)
+        

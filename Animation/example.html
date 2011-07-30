@@ -1,0 +1,63 @@
+﻿<html>
+<head>
+<title>jQuery Animation Plugin</title>
+
+<style>
+	.button {
+		width: 300px;
+		height: 30px;
+		background:url(sprites.png);
+		background-position: 0px 0px;
+		border: 1px solid #E4E4E4;
+		float: left;
+	}
+	
+	.clear {
+		clear: both;
+	}
+</style> 
+
+</head>
+<body>
+<div class="button"></div>
+<div class="button"></div>
+
+
+<div><input type="button" id="on" value="on"></div>
+<div><input type="button" id="off" value="off"></div>
+
+<div><input type="button" id="stop" value="stop" onclick="$('.button').animation('Stop');"></div>
+<div><input type="button" id="start" value="start" onclick="$('.button').animation('Start', true);"></div>
+
+<script type="text/javascript" src="jquery-1.6.min.js"></script>
+<script type="text/javascript" src="jquery.animation.js"></script>
+
+<div class="clear"></div>
+
+<script type="text/javascript">
+	$(document).ready( function() {
+		
+		$('.button').Animation({
+			positions: [[0,0],[0,-35],[0,-70],[0,-105],[0,-140],[0,-175],[0,-210],[0,-245],[0,-280],[0,-315],[0,-350],[0,-385],[0,-420],[0,-455],[0,-490],[0,-525],[0,-560]],
+			forwardEvent: 'mouseover',
+			//reverseEvent: 'click',
+			//triggerElement: '#on',
+			//triggerElementReverse: '#off',
+			delayRewind: 1000,
+			delay: 1000,
+			//loop: false,
+			repeat: 1,
+			autostart: true
+		});
+		
+		//$('#button2').Animation({
+		//	positions: [[0,0],[0,-35],[0,-70],[0,-105],[0,-140],[0,-175],[0,-210],[0,-245],[0,-280],[0,-315],[0,-350],[0,-385],[0,-420],[0,-455],[0,-490],[0,-525],[0,-560]],			forwardEvent: 'mouseover',
+		//	forwardEvent: 'load'
+		//});
+		
+		
+	});
+</script>
+
+</body>
+</html>
